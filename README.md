@@ -2,7 +2,9 @@
 
 A **beautiful and seamless image search engine** powered by the Unsplash API, enabling users to explore and download high-quality images effortlessly.  
 
-🔗 **Live Preview of the Website:** https://vikram2003-07.github.io/Unsplash_Explorer-/
+🔗 **Live Preview of the Website, click the link below 👇:** 
+
+https://vikram2003-07.github.io/Unsplash_Explorer-/
 
 ## 📌 Features  
 
