@@ -1,14 +1,14 @@
-html,body{
-    scroll-behavior: smooth;
-    scrollbar-color: auto !important;
-}
 *{
     margin: 0;padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman';
 }
+html,body{
+    scroll-behavior: smooth;
+    scrollbar-color: auto !important;
+}
 body{
-    background: linear-gradient(90deg, #903fe6, #2666d4);
+    background-color: black;
     color: white;
     overflow-y: overlay;
 }
@@ -17,18 +17,19 @@ h1 {
     margin: 50px auto;
     font-weight: 700;
     font-size: 48px;
-    background-color: #f1f0f0;
+    background: linear-gradient(to right, #ff0000 0%, #ffd1c8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
 form{
-    width: 40%;
-    min-width: 250px;
+    width: 45%;
+    min-width: 300px;
     margin: auto;
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: center;
     background: transparent;
     box-shadow: none;
@@ -36,33 +37,93 @@ form{
 }
 form input{
     flex: 1;
-    height: 100%;
-    border: 0;
-    outline: 0;
-    background-color: white;
-    color: black;
-    font-size: 18px;
-    padding: 0 30px;
-    border-radius: 8px;
-    margin-right: 6px;
-}
-form button{
-    padding: 0 40px;
     height: 3rem;
-    background: red;
+    border: none;
+    outline: none;
+    background: transparent;
     color: white;
     font-size: 16px;
-    border: 0;
-    outline: 0;
+    padding: 0 16px;
     border-radius: 10px;
-    cursor: pointer;
 }
+form input:focus,
+form input:active{
+    background-color: transparent !important;
+    color: white !important;
+}
+form button {
+    padding: 0 18px;
+    height: 3rem;
+    background: #ff6b6b;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+}
+
+form button i {
+    color: white;
+    font-size: 16px;
+}
+
+form button:hover {
+    background: #ff5252;
+}
+
 ::placeholder{
-    color: black;
+    color: rgb(153, 153, 153);
     font-size: 18px;
 }
+.search-input-container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    height: 3rem;
+    gap: 10px;
+    background: transparent;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#search-box {
+    flex: 1;
+    height: 100%;
+    padding: 0 15px 0 40px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+#search-box::placeholder {
+    color: #888;
+}
+
+.search-input-container i:not(button i) {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.search-input-container:focus-within i:not(button i) {
+    color: #ff6b6b;
+}
+
 #more-btn{
-    background: red;
+    background: rgb(255, 87, 87);
     color: white;
     border: 0;
     outline: 0;
@@ -124,11 +185,10 @@ form button{
     justify-content: center;
 }
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 14px;
 }
 ::-webkit-scrollbar-track{
-    background-color:#2666d4;
-    background-clip: padding-box;
+    background-color:transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: #98a0a8;
@@ -137,27 +197,33 @@ form button{
     background-clip: padding-box;
 }
 
-.search-input-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 3rem;
-}
-
 #search-box {
-    padding-left: 3em; /* space for the icon */
+    padding-left: 3em;
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
+    border: 2px solid #555;
+    border-radius: 12px;
+    background-color: #1a1a2e;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-.search-icon {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #6f00ff;
-    pointer-events: none;
-    font-size: 1.3em;
+#search-box::placeholder {
+    color: #888;
+}
+
+#search-box:hover {
+    border-color: #888;
+    background-color: #222240;
+}
+
+#search-box:focus {
+    border-color: #6f00ff;
+    background-color: #222240;
+    box-shadow: 0 0 12px rgba(111, 0, 255, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -230,7 +296,7 @@ form button{
         width: 18px;
     }
     ::-webkit-scrollbar-track{
-        background-color:#2666d4;
+        background-color:#000;
         background-clip: padding-box;
     }
     ::-webkit-scrollbar-thumb {
@@ -303,16 +369,13 @@ form button{
         gap: 10px;
     }
     ::-webkit-scrollbar {
-        width: 16px;
+        width: 12px;
     }
     ::-webkit-scrollbar-track{
-        background-color:#2666d4;
-        background-clip: padding-box;
+        background-color:#000000;
     }
     ::-webkit-scrollbar-thumb {
-        background: #98a0a8;
+        background: #3c3c3c;
         border-radius: 30px;
-        border: 5px solid transparent;
-        background-clip: padding-box;
     }
 }
